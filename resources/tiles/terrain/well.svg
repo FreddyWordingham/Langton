@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="100" height="100"
+    viewBox="0 0 100 100">
+    <g transform="translate(0, 100) scale(1 -1)" fill="white" stroke="white" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="66.8" cy="56.5" rx="12" ry="8"
+            transform="rotate(29 66.8 56.5)" />
+        <ellipse cx="59.1" cy="32.5" rx="10" ry="7"
+            transform="rotate(39 59.1 32.5)" />
+        <ellipse cx="23.3" cy="42" rx="9" ry="6"
+            transform="rotate(-8 23.3 42)" />
+        <ellipse cx="80.5" cy="33.3" rx="8" ry="5.5"
+            transform="rotate(26 80.5 33.3)" />
+        <ellipse cx="80.4" cy="76.3" rx="9" ry="5"
+            transform="rotate(-31 80.4 76.3)" />
+        <ellipse cx="58.5" cy="76.8" rx="8" ry="4.5"
+            transform="rotate(-5 58.5 76.8)" />
+        <ellipse cx="26" cy="18" rx="7" ry="4.5"
+            transform="rotate(0 26 18)" />
+        <ellipse cx="35.9" cy="61.4" rx="6" ry="3.5"
+            transform="rotate(25 35.9 61.4)" />
+        <ellipse cx="36.5" cy="80.4" rx="4" ry="6"
+            transform="rotate(39 36.5 80.4)" />
+        <ellipse cx="81.9" cy="15.9" rx="5.5" ry="3.5"
+            transform="rotate(33 81.9 15.9)" />
+        <ellipse cx="17.7" cy="72.1" rx="4.5" ry="3"
+            transform="rotate(-4 17.7 72.1)" />
+    </g>
+</svg>

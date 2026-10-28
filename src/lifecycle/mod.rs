@@ -3,11 +3,9 @@ mod messages;
 mod plugin;
 mod sets;
 mod systems;
-mod traits;
 
 pub(crate) use components::Despawn;
-pub use messages::SpawnThing;
+pub use messages::{SpawnItem, SpawnMachine, SpawnTerrain};
 pub(crate) use plugin::LifecyclePlugin;
 pub(crate) use sets::LifecycleSet;
-use systems::{despawn_marked, handle_spawn_thing};
-pub(crate) use traits::ApplyTo;
+use systems::{despawn_item, despawn_machine, despawn_terrain, handle_spawn_item, handle_spawn_machine, handle_spawn_terrain};
