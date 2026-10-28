@@ -1,6 +1,7 @@
 use bevy::prelude::*;
 
 use crate::{
+    gas::Gas,
     pumpjack::{PUMPJACK_COOLDOWN, Pumpjack},
     spatial::{Position, SpatialIndex},
     thing::{Item, Terrain},
@@ -20,11 +21,14 @@ pub(super) fn create_items(
 
         if let Ok(terrain) = terrain_q.get(pumpjack.target) {
             if item_spatial_index.get(&pos.0).is_none() {
-                let ent = commands.spawn((Position(pos.0), terrain.item()));
-                item_spatial_index.insert(ent.id(), pos.0);
-            }
+                let item = terrain.item();
+                let mut ent = commands.spawn((Position(pos.0), item));
 
-            if item_spatial_index.get(&pos.0).is_none() {
+                if terrain.item().is_gas() {
+                    ent.insert(Gas);
+                }
+
+                item_spatial_index.insert(ent.id(), pos.0);
                 pumpjack.remaining_cooldown = PUMPJACK_COOLDOWN;
             }
         }

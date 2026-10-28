@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
 use crate::{
-    render::{RenderSet, sync_appearances},
+    render::{RenderUpdateSet, sync_appearances},
     thing::{Item, Machine, Terrain},
 };
 
@@ -9,14 +9,14 @@ pub struct RenderPlugin;
 
 impl Plugin for RenderPlugin {
     fn build(&self, app: &mut App) {
-        app.configure_sets(Update, RenderSet::Sync).add_systems(
+        app.configure_sets(Update, RenderUpdateSet::Sync).add_systems(
             Update,
             (
                 sync_appearances::<Terrain>,
                 sync_appearances::<Machine>,
                 sync_appearances::<Item>,
             )
-                .in_set(RenderSet::Sync),
+                .in_set(RenderUpdateSet::Sync),
         );
     }
 }

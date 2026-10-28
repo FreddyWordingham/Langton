@@ -5,5 +5,5 @@ mod systems;
 
 pub(crate) use plugin::CursorPlugin;
 pub use resources::Cursor;
-pub(crate) use sets::CursorSet;
+pub(crate) use sets::CursorPostUpdateSet;
 use systems::sync_cursor;

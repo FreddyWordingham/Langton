@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 
 #[derive(SystemSet, Clone, Debug, PartialEq, Eq, Hash)]
-pub(crate) enum SpatialSet {
+pub(crate) enum SpatialUpdateSet {
     Sync,
 }

@@ -3,6 +3,7 @@ use bevy::prelude::*;
 mod camera;
 mod cursor;
 mod direction;
+mod gas;
 mod lifecycle;
 mod pumpjack;
 mod random;
@@ -11,8 +12,14 @@ mod spatial;
 mod thing;
 
 use crate::{
-    camera::CameraPlugin, cursor::CursorPlugin, lifecycle::LifecyclePlugin, pumpjack::PumpjackPlugin, random::RandomPlugin,
-    render::RenderPlugin, spatial::SpatialPlugin,
+    camera::{CameraPlugin, CameraStartupSet, CameraUpdateSet},
+    cursor::{CursorPlugin, CursorPostUpdateSet},
+    gas::{GasFixedUpdateSet, GasPlugin},
+    lifecycle::{LifecycleFixedUpdateSet, LifecyclePlugin},
+    pumpjack::{PumpjackFixedUpdateSet, PumpjackPlugin},
+    random::RandomPlugin,
+    render::{RenderPlugin, RenderUpdateSet},
+    spatial::{SpatialPlugin, SpatialUpdateSet},
 };
 
 pub mod prelude {
@@ -32,11 +39,27 @@ impl Plugin for LangtonPlugin {
         app.add_plugins((
             CameraPlugin,
             CursorPlugin,
+            GasPlugin,
             LifecyclePlugin,
             PumpjackPlugin,
             RandomPlugin,
             RenderPlugin,
             SpatialPlugin,
-        ));
+        ))
+        .configure_sets(Startup, CameraStartupSet::Spawn)
+        .configure_sets(
+            Update,
+            (CameraUpdateSet::Input, RenderUpdateSet::Sync, SpatialUpdateSet::Sync),
+        )
+        .configure_sets(PostUpdate, CursorPostUpdateSet::Sync)
+        .configure_sets(
+            FixedUpdate,
+            (
+                LifecycleFixedUpdateSet::Spawn,
+                PumpjackFixedUpdateSet::Create,
+                GasFixedUpdateSet::Move,
+                LifecycleFixedUpdateSet::Despawn,
+            ),
+        );
     }
 }

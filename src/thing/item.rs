@@ -8,6 +8,12 @@ pub enum Item {
     Methane,
 }
 
+impl Item {
+    pub(crate) fn is_gas(&self) -> bool {
+        matches!(self, Item::Methane)
+    }
+}
+
 impl Appearance for Item {
     fn sprite(&self) -> &'static str {
         match self {
