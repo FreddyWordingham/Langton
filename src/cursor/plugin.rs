@@ -2,7 +2,7 @@ use bevy::{camera::CameraUpdateSystems, prelude::*, transform::TransformSystems}
 
 use crate::cursor::{Cursor, CursorSet, sync_cursor};
 
-pub struct CursorPlugin;
+pub(crate) struct CursorPlugin;
 
 impl Plugin for CursorPlugin {
     fn build(&self, app: &mut App) {
@@ -11,11 +11,6 @@ impl Plugin for CursorPlugin {
             .add_systems(
                 PostUpdate,
                 sync_cursor.after(TransformSystems::Propagate).after(CameraUpdateSystems),
-            )
-            .add_systems(Update, report_cursor.run_if(resource_changed::<Cursor>));
+            );
     }
-}
-
-fn report_cursor(cursor: Res<Cursor>) {
-    println!("Cursor position: {:?}", cursor.0);
 }

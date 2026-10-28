@@ -1,1 +1,1 @@
-pub(crate) const TILE_SIZE: f32 = 32.0;
+pub(crate) const TILE_SIZE: f32 = 64.0;

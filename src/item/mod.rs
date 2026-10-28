@@ -1,3 +1,3 @@
 mod components;
 
-pub(crate) use components::Item;
+pub use components::Item;

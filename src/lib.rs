@@ -12,7 +12,7 @@ use crate::{
 };
 
 pub mod prelude {
-    pub use crate::LangtonPlugin;
+    pub use crate::{LangtonPlugin, cursor::Cursor, item::Item, lifecycle::SpawnThing};
 }
 
 pub struct LangtonPlugin;
