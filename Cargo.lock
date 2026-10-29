@@ -378,6 +378,7 @@ dependencies = [
 name = "arc_time"
 version = "0.0.0"
 dependencies = [
+ "arc_tick",
  "bevy",
 ]
 
