@@ -2,5 +2,6 @@
 
 mod constants;
 mod plugin;
+mod resources;
 
-pub use crate::{constants::TILE_SIZE, plugin::SpatialPlugin};
+pub use crate::{constants::TILE_SIZE, plugin::SpatialPlugin, resources::SpatialIndex};
