@@ -1,21 +1,12 @@
-use arc_core::TILE_SIZE;
 use bevy::prelude::*;
+
+use crate::{sets::GizmoUpdate, systems::draw_grid};
 
 pub struct GizmoPlugin;
 
 impl Plugin for GizmoPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, draw_grid);
+        app.configure_sets(Update, GizmoUpdate::Draw)
+            .add_systems(Update, draw_grid.in_set(GizmoUpdate::Draw));
     }
-}
-
-fn draw_grid(mut gizmos: Gizmos) {
-    gizmos
-        .grid_2d(
-            Isometry2d::IDENTITY,
-            UVec2::new(16, 16),
-            Vec2::splat(TILE_SIZE),
-            LinearRgba::gray(0.05),
-        )
-        .outer_edges();
 }

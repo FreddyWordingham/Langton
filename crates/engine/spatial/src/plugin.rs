@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
-pub struct CorePlugin;
+pub struct SpatialPlugin;
 
-impl Plugin for CorePlugin {
+impl Plugin for SpatialPlugin {
     fn build(&self, _app: &mut App) {}
 }

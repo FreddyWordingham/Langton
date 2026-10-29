@@ -1,6 +1,6 @@
 [package]
-name = "arc_core"
-description = "Core Crate"
+name = "arc_spatial"
+description = "Spatial Crate"
 repository.workspace = true
 readme.workspace = true
 keywords.workspace = true

@@ -3,4 +3,4 @@
 mod constants;
 mod plugin;
 
-pub use crate::{constants::TILE_SIZE, plugin::CorePlugin};
+pub use crate::{constants::TILE_SIZE, plugin::SpatialPlugin};
