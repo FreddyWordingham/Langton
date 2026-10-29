@@ -1,6 +1,7 @@
 use bevy::prelude::*;
 
 use crate::{
+    gas::Gas,
     lifecycle::{Despawn, SpawnItem, SpawnMachine, SpawnTerrain},
     pumpjack::Pumpjack,
     spatial::{Position, SpatialIndex},
@@ -32,6 +33,9 @@ pub(super) fn handle_spawn_machine(
     for msg in spawn_machine_msg.read() {
         if machine_spatial_index.get(&msg.location).is_none() {
             match msg.machine {
+                Machine::Drill => {
+                    unimplemented!()
+                }
                 Machine::Pumpjack => {
                     let Some(target_ent) = terrain_spatial_index.get(&msg.location) else {
                         warn!("Attempted to spawn pumpjack at location with no terrain: {:?}", msg.location);
@@ -68,7 +72,10 @@ pub(super) fn handle_spawn_item(
 ) {
     for msg in spawn_item_msg.read() {
         if item_spatial_index.get(&msg.location).is_none() {
-            let ent = commands.spawn((msg.item, Position(msg.location)));
+            let mut ent = commands.spawn((msg.item, Position(msg.location)));
+            if msg.item.is_gas() {
+                ent.insert(Gas);
+            }
             item_spatial_index.insert(ent.id(), msg.location);
         } else {
             warn!("Attempted to spawn item at occupied position: {:?}", msg.location);

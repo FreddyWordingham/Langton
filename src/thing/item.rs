@@ -9,6 +9,15 @@ pub enum Item {
 }
 
 impl Item {
+    pub(crate) const ALL: [Item; 2] = [Item::IronOre, Item::Methane];
+
+    pub(crate) fn as_str(&self) -> &'static str {
+        match self {
+            Item::IronOre => "Iron Ore",
+            Item::Methane => "Methane",
+        }
+    }
+
     pub(crate) fn is_gas(&self) -> bool {
         matches!(self, Item::Methane)
     }

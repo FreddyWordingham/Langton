@@ -9,6 +9,16 @@ pub enum Terrain {
 }
 
 impl Terrain {
+    pub(crate) const ALL: [Terrain; 2] = [Terrain::Ore(Item::IronOre), Terrain::Well(Item::Methane)];
+
+    pub(crate) fn as_str(&self) -> &'static str {
+        match self {
+            Terrain::Ore(Item::IronOre) => "Iron Ore",
+            Terrain::Well(Item::Methane) => "Methane Well",
+            _ => "Unknown",
+        }
+    }
+
     pub(crate) fn is_well(&self) -> bool {
         matches!(self, Terrain::Well(_))
     }

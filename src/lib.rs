@@ -3,6 +3,7 @@ use bevy::prelude::*;
 mod camera;
 mod cursor;
 mod direction;
+mod editor;
 mod gas;
 mod lifecycle;
 mod pumpjack;
@@ -10,16 +11,19 @@ mod random;
 mod render;
 mod spatial;
 mod thing;
+mod ui;
 
 use crate::{
     camera::{CameraPlugin, CameraStartupSet, CameraUpdateSet},
     cursor::{CursorPlugin, CursorPostUpdateSet},
+    editor::{EditorPlugin, EditorUpdateSet},
     gas::{GasFixedUpdateSet, GasPlugin},
     lifecycle::{LifecycleFixedUpdateSet, LifecyclePlugin},
     pumpjack::{PumpjackFixedUpdateSet, PumpjackPlugin},
     random::RandomPlugin,
     render::{RenderPlugin, RenderUpdateSet},
     spatial::{SpatialPlugin, SpatialUpdateSet},
+    ui::{UiPlugin, UiUpdateSet},
 };
 
 pub mod prelude {
@@ -39,17 +43,27 @@ impl Plugin for LangtonPlugin {
         app.add_plugins((
             CameraPlugin,
             CursorPlugin,
+            EditorPlugin,
             GasPlugin,
             LifecyclePlugin,
             PumpjackPlugin,
             RandomPlugin,
             RenderPlugin,
             SpatialPlugin,
+            UiPlugin,
         ))
         .configure_sets(Startup, CameraStartupSet::Spawn)
         .configure_sets(
             Update,
-            (CameraUpdateSet::Input, RenderUpdateSet::Sync, SpatialUpdateSet::Sync),
+            (
+                UiUpdateSet::Sync,
+                EditorUpdateSet::Input,
+                EditorUpdateSet::Spawn,
+                EditorUpdateSet::Despawn,
+                CameraUpdateSet::Input,
+                RenderUpdateSet::Sync,
+                SpatialUpdateSet::Sync,
+            ),
         )
         .configure_sets(PostUpdate, CursorPostUpdateSet::Sync)
         .configure_sets(

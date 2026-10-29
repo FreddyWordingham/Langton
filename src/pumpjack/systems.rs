@@ -22,9 +22,9 @@ pub(super) fn create_items(
         if let Ok(terrain) = terrain_q.get(pumpjack.target) {
             if item_spatial_index.get(&pos.0).is_none() {
                 let item = terrain.item();
-                let mut ent = commands.spawn((Position(pos.0), item));
+                let mut ent = commands.spawn((item, Position(pos.0)));
 
-                if terrain.item().is_gas() {
+                if item.is_gas() {
                     ent.insert(Gas);
                 }
 
