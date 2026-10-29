@@ -37,6 +37,7 @@ arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
 # Input
 
 # Presentation
+arc_camera = { version = "0.0.0", path = "crates/presentation/camera" }
 
 # Simulation
 
