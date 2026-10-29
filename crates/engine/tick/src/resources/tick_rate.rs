@@ -14,7 +14,7 @@ impl Default for TickRate {
         Self {
             is_paused: START_PAUSED,
             tps: DEFAULT_TPS,
-            pending_steps: 7,
+            pending_steps: 0,
         }
     }
 }
@@ -24,18 +24,26 @@ impl TickRate {
         self.is_paused
     }
 
-    pub(crate) fn pause(&mut self) {
+    pub(crate) fn tps(&self) -> Option<f64> {
+        if self.is_paused { None } else { Some(self.tps) }
+    }
+
+    pub fn set_tps(&mut self, tps: f64) {
+        self.tps = tps;
+    }
+
+    pub fn pause(&mut self) {
         self.is_paused = true;
         self.pending_steps = 0;
     }
 
-    pub(crate) fn unpause(&mut self) {
+    pub fn unpause(&mut self) {
         self.is_paused = false;
         self.pending_steps = 0;
     }
 
-    pub(crate) fn tps(&self) -> Option<f64> {
-        if self.is_paused { None } else { Some(self.tps) }
+    pub fn increment_pending(&mut self) {
+        self.pending_steps += 1;
     }
 
     pub(crate) fn decrement_pending(&mut self) -> bool {

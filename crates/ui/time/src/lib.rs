@@ -5,4 +5,7 @@ mod plugin;
 mod sets;
 mod systems;
 
-pub use crate::{plugin::TimePlugin, sets::TimeStartup};
+pub use crate::{
+    plugin::TimePlugin,
+    sets::{TimeStartup, TimeUpdate},
+};
