@@ -5,4 +5,5 @@ pub(crate) enum EditorUpdateSet {
     Spawn,
     Input,
     Despawn,
+    Sync,
 }

@@ -5,7 +5,7 @@ use bevy::{
 
 use crate::editor::{
     ActiveEditorSelection, ActiveEditorTab, EditorUpdateSet, ShowEditorUi, despawn_menu, despawn_selection_panel, spawn_menu,
-    spawn_selection_panel, toggle_editor_ui, trigger_spawn_thing,
+    spawn_selection_panel, sync_button_selection, toggle_editor_ui, trigger_spawn_thing,
 };
 
 pub(crate) struct EditorPlugin;
@@ -14,7 +14,13 @@ impl Plugin for EditorPlugin {
     fn build(&self, app: &mut App) {
         app.configure_sets(
             Update,
-            (EditorUpdateSet::Spawn, EditorUpdateSet::Input, EditorUpdateSet::Despawn),
+            (
+                EditorUpdateSet::Spawn,
+                EditorUpdateSet::Input,
+                EditorUpdateSet::Despawn,
+                EditorUpdateSet::Sync,
+            )
+                .chain(),
         )
         .init_resource::<ShowEditorUi>()
         .add_systems(
@@ -35,6 +41,7 @@ impl Plugin for EditorPlugin {
                     despawn_selection_panel.run_if(resource_removed::<ActiveEditorTab>),
                 )
                     .in_set(EditorUpdateSet::Despawn),
+                sync_button_selection.in_set(EditorUpdateSet::Sync),
             ),
         );
     }

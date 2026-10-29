@@ -13,6 +13,7 @@ pub(crate) use resources::ActiveEditorSelection;
 use resources::{ActiveEditorTab, ShowEditorUi};
 pub(crate) use sets::EditorUpdateSet;
 use systems::{
-    despawn_menu, despawn_selection_panel, spawn_menu, spawn_selection_panel, toggle_editor_ui, trigger_spawn_thing,
+    despawn_menu, despawn_selection_panel, spawn_menu, spawn_selection_panel, sync_button_selection, toggle_editor_ui,
+    trigger_spawn_thing,
 };
 use types::{EditorSelection, EditorTab};

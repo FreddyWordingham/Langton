@@ -13,6 +13,7 @@ use crate::{
     lifecycle::{SpawnItem, SpawnMachine, SpawnTerrain},
     render::Appearance,
     thing::{Item, Machine, Terrain},
+    ui::ButtonSelected,
 };
 
 pub(super) fn toggle_editor_ui(
@@ -63,6 +64,7 @@ pub(super) fn spawn_menu(mut commands: Commands, editor_menu_q: Query<(), With<E
                             .spawn((
                                 EditorTabButton(tab),
                                 Button,
+                                ButtonSelected::default(),
                                 Hovered::default(),
                                 Node {
                                     flex_grow: 1.0,
@@ -180,6 +182,21 @@ pub(super) fn despawn_selection_panel(
     commands.remove_resource::<ActiveEditorSelection>();
 }
 
+pub(super) fn sync_button_selection(
+    active_tab: Option<Res<ActiveEditorTab>>,
+    active_selection: Option<Res<ActiveEditorSelection>>,
+    mut buttons: Query<(&mut ButtonSelected, Option<&EditorTabButton>, Option<&EditorSelectionButton>)>,
+) {
+    for (mut selected, tab_button, selection_button) in &mut buttons {
+        let is_selected = tab_button.is_some_and(|button| active_tab.as_ref().is_some_and(|active| active.0 == button.0))
+            || selection_button.is_some_and(|button| active_selection.as_ref().is_some_and(|active| active.0 == button.0));
+
+        if selected.0 != is_selected {
+            selected.0 = is_selected;
+        }
+    }
+}
+
 pub(super) fn trigger_spawn_thing(
     mut spawn_terrain_msg: MessageWriter<SpawnTerrain>,
     mut spawn_machine_msg: MessageWriter<SpawnMachine>,
@@ -211,6 +228,7 @@ fn selection_button(selection: EditorSelection, label: &str, image: ImageNode) -
     (
         EditorSelectionButton(selection),
         Button,
+        ButtonSelected::default(),
         Hovered::default(),
         Node {
             width: percent(100.0),
