@@ -286,6 +286,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_button"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_camera"
 version = "0.0.0"
 dependencies = [
@@ -386,6 +393,7 @@ dependencies = [
 name = "arc_ui"
 version = "0.0.0"
 dependencies = [
+ "arc_button",
  "arc_time",
  "bevy",
 ]

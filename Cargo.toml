@@ -45,6 +45,7 @@ arc_camera = { version = "0.0.0", path = "crates/presentation/camera" }
 # Simulation
 
 # UI
+arc_button = { version = "0.0.0", path = "crates/ui/button" }
 arc_time = { version = "0.0.0", path = "crates/ui/time" }
 
 
