@@ -11,6 +11,7 @@ mod random;
 mod render;
 mod spatial;
 mod thing;
+mod time;
 mod ui;
 
 use crate::{
@@ -23,6 +24,7 @@ use crate::{
     random::RandomPlugin,
     render::{RenderPlugin, RenderUpdateSet},
     spatial::{SpatialPlugin, SpatialUpdateSet},
+    time::{TimePlugin, TimeStartupSet, TimeUpdateSet},
     ui::{UiPlugin, UiUpdateSet},
 };
 
@@ -50,9 +52,10 @@ impl Plugin for LangtonPlugin {
             RandomPlugin,
             RenderPlugin,
             SpatialPlugin,
+            TimePlugin,
             UiPlugin,
         ))
-        .configure_sets(Startup, CameraStartupSet::Spawn)
+        .configure_sets(Startup, (CameraStartupSet::Spawn, TimeStartupSet::Spawn))
         .configure_sets(
             Update,
             (
@@ -61,8 +64,11 @@ impl Plugin for LangtonPlugin {
                 EditorUpdateSet::Spawn,
                 EditorUpdateSet::Despawn,
                 CameraUpdateSet::Input,
+                TimeUpdateSet::Input,
+                EditorUpdateSet::Sync,
                 RenderUpdateSet::Sync,
                 SpatialUpdateSet::Sync,
+                TimeUpdateSet::Sync,
             ),
         )
         .configure_sets(PostUpdate, CursorPostUpdateSet::Sync)
