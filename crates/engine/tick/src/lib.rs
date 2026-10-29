@@ -9,5 +9,5 @@ mod systems;
 pub use crate::{
     plugin::TickPlugin,
     resources::{Tick, TickRate},
-    sets::{TickFirst, TickFixedUpdate, TickUpdate},
+    sets::{TickFirst, TickFixedUpdate, TickStartup},
 };

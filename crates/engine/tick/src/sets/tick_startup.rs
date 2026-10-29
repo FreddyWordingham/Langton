@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 
 #[derive(SystemSet, Debug, Clone, PartialEq, Eq, Hash)]
-pub enum TickUpdate {
-    Update,
+pub enum TickStartup {
+    Init,
 }
