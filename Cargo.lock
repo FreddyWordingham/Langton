@@ -375,9 +375,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_time"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_ui"
 version = "0.0.0"
 dependencies = [
+ "arc_time",
  "bevy",
 ]
 
