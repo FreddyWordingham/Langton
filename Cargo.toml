@@ -1,0 +1,85 @@
+[workspace]
+members = ["app", "crates/*/*"]
+resolver = "2"
+default-members = ["app"]
+
+
+[workspace.package]
+edition = "2024"
+version = "0.0.0"
+authors = ["Freddy Wordingham"]
+repository = "https://github.com/FreddyWordingham/langton"
+readme = "README.md"
+keywords = ["simulation"]
+categories = ["simulation"]
+license-file = "LICENSE"
+
+
+[workspace.dependencies]
+# App
+arc_game = { version = "0.0.0", path = "crates/application/game" }
+
+# Composition
+arc_content = { version = "0.0.0", path = "crates/composition/content" }
+arc_dev = { version = "0.0.0", path = "crates/composition/dev" }
+arc_engine = { version = "0.0.0", path = "crates/composition/engine" }
+arc_input = { version = "0.0.0", path = "crates/composition/input" }
+arc_presentation = { version = "0.0.0", path = "crates/composition/presentation" }
+arc_simulation = { version = "0.0.0", path = "crates/composition/simulation" }
+arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
+
+# Content
+
+# Dev
+
+# Engine
+
+# Input
+
+# Presentation
+
+# Simulation
+
+# UI
+
+
+# Third party
+bevy = { version = "0.20", default-features = false, features = [
+    "2d",
+    "debug",
+    "dynamic_linking",
+    "ui",
+] }
+
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+unreachable_pub = "deny"
+
+
+[workspace.lints.clippy]
+absolute_paths = "deny"
+cargo = { level = "warn", priority = -1 }
+complexity = { level = "warn", priority = -1 }
+correctness = { level = "deny", priority = -1 }
+nursery = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+perf = { level = "warn", priority = -1 }
+style = { level = "warn", priority = -1 }
+suspicious = { level = "deny", priority = -1 }
+
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = "s"
+strip = "debuginfo"

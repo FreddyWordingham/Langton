@@ -1,0 +1,21 @@
+[package]
+name = "app"
+description = "app"
+repository.workspace = true
+readme = "README.md"
+keywords.workspace = true
+categories.workspace = true
+license-file.workspace = true
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+
+
+[dependencies]
+arc_game = { workspace = true }
+
+bevy = { workspace = true }
+
+
+[lints]
+workspace = true

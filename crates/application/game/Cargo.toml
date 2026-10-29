@@ -1,0 +1,32 @@
+[package]
+name = "arc_game"
+description = "Game Crate"
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
+license-file.workspace = true
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+
+
+[features]
+default = []
+dev = ["dep:arc_dev"]
+
+
+[dependencies]
+arc_content = { workspace = true }
+arc_dev = { workspace = true, optional = true }
+arc_engine = { workspace = true }
+arc_input = { workspace = true }
+arc_presentation = { workspace = true }
+arc_simulation = { workspace = true }
+arc_ui = { workspace = true }
+
+bevy = { workspace = true }
+
+
+[lints]
+workspace = true
