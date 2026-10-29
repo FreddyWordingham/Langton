@@ -10,6 +10,12 @@ impl Plugin for GizmoPlugin {
 }
 
 fn draw_grid(mut gizmos: Gizmos) {
-    gizmos.rect_2d(Isometry2d::default(), Vec2::splat(TILE_SIZE), Color::srgb(1.0, 0.0, 0.0));
-    info!("Drawing grid");
+    gizmos
+        .grid_2d(
+            Isometry2d::IDENTITY,
+            UVec2::new(16, 16),
+            Vec2::splat(TILE_SIZE),
+            LinearRgba::gray(0.05),
+        )
+        .outer_edges();
 }
