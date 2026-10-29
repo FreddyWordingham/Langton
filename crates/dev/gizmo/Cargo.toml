@@ -1,0 +1,21 @@
+[package]
+name = "arc_gizmo"
+description = "Gizmo Crate"
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
+license-file.workspace = true
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+
+
+[dependencies]
+arc_core = { workspace = true }
+
+bevy = { workspace = true }
+
+
+[lints]
+workspace = true

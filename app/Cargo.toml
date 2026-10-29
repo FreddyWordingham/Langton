@@ -11,6 +11,11 @@ version.workspace = true
 authors.workspace = true
 
 
+[features]
+default = []
+dev = ["arc_game/dev"]
+
+
 [dependencies]
 arc_game = { workspace = true }
 

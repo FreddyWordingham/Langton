@@ -31,8 +31,10 @@ arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
 # Content
 
 # Dev
+arc_gizmo = { version = "0.0.0", path = "crates/dev/gizmo" }
 
 # Engine
+arc_core = { version = "0.0.0", path = "crates/engine/core" }
 
 # Input
 

@@ -300,9 +300,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_core"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_dev"
 version = "0.0.0"
 dependencies = [
+ "arc_gizmo",
  "bevy",
 ]
 
@@ -310,6 +318,7 @@ dependencies = [
 name = "arc_engine"
 version = "0.0.0"
 dependencies = [
+ "arc_core",
  "bevy",
 ]
 
@@ -324,6 +333,14 @@ dependencies = [
  "arc_presentation",
  "arc_simulation",
  "arc_ui",
+ "bevy",
+]
+
+[[package]]
+name = "arc_gizmo"
+version = "0.0.0"
+dependencies = [
+ "arc_core",
  "bevy",
 ]
 
