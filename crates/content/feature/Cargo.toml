@@ -1,0 +1,21 @@
+[package]
+name = "arc_feature"
+description = "Feature Crate"
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
+license-file.workspace = true
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+
+
+[dependencies]
+arc_item = { workspace = true }
+
+bevy = { workspace = true }
+
+
+[lints]
+workspace = true

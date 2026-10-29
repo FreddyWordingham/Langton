@@ -300,9 +300,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_construct"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_content"
 version = "0.0.0"
 dependencies = [
+ "arc_construct",
+ "arc_feature",
+ "arc_item",
+ "arc_terrain",
  "bevy",
 ]
 
@@ -320,6 +331,14 @@ version = "0.0.0"
 dependencies = [
  "arc_spatial",
  "arc_tick",
+ "bevy",
+]
+
+[[package]]
+name = "arc_feature"
+version = "0.0.0"
+dependencies = [
+ "arc_item",
  "bevy",
 ]
 
@@ -353,6 +372,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_item"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_presentation"
 version = "0.0.0"
 dependencies = [
@@ -369,6 +395,13 @@ dependencies = [
 
 [[package]]
 name = "arc_spatial"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
+name = "arc_terrain"
 version = "0.0.0"
 dependencies = [
  "bevy",

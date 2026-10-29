@@ -29,6 +29,10 @@ arc_simulation = { version = "0.0.0", path = "crates/composition/simulation" }
 arc_ui = { version = "0.0.0", path = "crates/composition/ui" }
 
 # Content
+arc_construct = { version = "0.0.0", path = "crates/content/construct" }
+arc_feature = { version = "0.0.0", path = "crates/content/feature" }
+arc_item = { version = "0.0.0", path = "crates/content/item" }
+arc_terrain = { version = "0.0.0", path = "crates/content/terrain" }
 
 # Dev
 arc_gizmo = { version = "0.0.0", path = "crates/dev/gizmo" }

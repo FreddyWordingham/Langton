@@ -12,6 +12,11 @@ authors.workspace = true
 
 
 [dependencies]
+arc_construct = { workspace = true }
+arc_feature = { workspace = true }
+arc_item = { workspace = true }
+arc_terrain = { workspace = true }
+
 bevy = { workspace = true }
 
 
