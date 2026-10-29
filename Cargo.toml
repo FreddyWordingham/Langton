@@ -1,8 +1,0 @@
-[package]
-name = "langton"
-version = "0.0.0"
-edition = "2024"
-
-[dependencies]
-bevy = { version = "0.20", default-features = false, features = ["2d", "ui"] }
-rand = "0.10.3"
