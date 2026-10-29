@@ -1,3 +1,3 @@
 mod colors;
 
-pub(crate) use colors::{HOVERED_COLOR, IDLE_COLOR, PRESSED_COLOR, SELECTED_COLOR, SELECTED_HOVERED_COLOR};
+pub(crate) use colors::{HOVERED_COLOR, IDLE_COLOR, PRESSED_COLOR};
