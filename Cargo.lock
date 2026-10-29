@@ -319,6 +319,7 @@ name = "arc_engine"
 version = "0.0.0"
 dependencies = [
  "arc_core",
+ "arc_tick",
  "bevy",
 ]
 
@@ -361,6 +362,13 @@ dependencies = [
 
 [[package]]
 name = "arc_simulation"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
+name = "arc_tick"
 version = "0.0.0"
 dependencies = [
  "bevy",

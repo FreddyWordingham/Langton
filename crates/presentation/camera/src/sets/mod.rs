@@ -1,5 +1,5 @@
-mod camera_startup_set;
-mod camera_update_set;
+mod camera_startup;
+mod camera_update;
 
-pub use camera_startup_set::CameraStartupSet;
-pub use camera_update_set::CameraUpdateSet;
+pub use camera_startup::CameraStartup;
+pub use camera_update::CameraUpdate;

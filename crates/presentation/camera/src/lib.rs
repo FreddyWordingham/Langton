@@ -11,5 +11,5 @@ pub use crate::{
     components::MainCamera,
     plugin::CameraPlugin,
     resources::CameraControl,
-    sets::{CameraStartupSet, CameraUpdateSet},
+    sets::{CameraStartup, CameraUpdate},
 };

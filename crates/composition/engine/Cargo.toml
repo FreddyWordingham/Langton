@@ -13,6 +13,7 @@ authors.workspace = true
 
 [dependencies]
 arc_core = { workspace = true }
+arc_tick = { workspace = true }
 
 bevy = { workspace = true }
 
