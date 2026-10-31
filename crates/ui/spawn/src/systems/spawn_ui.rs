@@ -5,7 +5,7 @@ use crate::{
     utils::spawn_tab_buttons,
 };
 
-pub(crate) fn spawn_ui(mut commands: Commands, assets: Res<AssetServer>) {
+pub(crate) fn spawn_ui(mut commands: Commands) {
     commands
         .spawn((
             SpawnUi,
@@ -31,9 +31,8 @@ pub(crate) fn spawn_ui(mut commands: Commands, assets: Res<AssetServer>) {
                     },
                 ))
                 .with_children(|parent| {
-                    spawn_tab_buttons(parent, &assets);
+                    spawn_tab_buttons(parent);
                 });
-
             parent.spawn((
                 SpawnSelectionPanel,
                 Node {

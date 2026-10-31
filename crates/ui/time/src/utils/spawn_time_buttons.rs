@@ -1,3 +1,4 @@
+use arc_theme::{DEFAULT_BUTTON_BORDER, DEFAULT_BUTTON_BORDER_COLOR, DEFAULT_BUTTON_BORDER_RADIUS, DEFAULT_BUTTON_PADDING};
 use arc_tick::TickRate;
 use bevy::{
     picking::hover::Hovered,
@@ -35,11 +36,14 @@ fn make_time_button(assets: &AssetServer, time_button: TimeButton) -> impl Bundl
         Node {
             width: px(32.0),
             height: px(32.0),
-            border: UiRect::all(px(2.0)),
-            border_radius: BorderRadius::all(px(4.0)),
+            border: DEFAULT_BUTTON_BORDER,
+            border_radius: DEFAULT_BUTTON_BORDER_RADIUS,
+            padding: DEFAULT_BUTTON_PADDING,
+            align_content: AlignContent::Center,
+            justify_content: JustifyContent::Center,
             ..default()
         },
-        BorderColor::from(Color::srgb(0.4, 0.4, 0.4)),
-        ImageNode::new(assets.load(time_button.icon_path())),
+        BorderColor::from(DEFAULT_BUTTON_BORDER_COLOR),
+        children![ImageNode::new(assets.load(time_button.icon_path()))],
     )
 }

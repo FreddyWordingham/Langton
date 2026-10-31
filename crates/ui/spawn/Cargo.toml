@@ -17,6 +17,7 @@ arc_draw = { workspace = true }
 arc_feature = { workspace = true }
 arc_item = { workspace = true }
 arc_terrain = { workspace = true }
+arc_theme = { workspace = true }
 
 bevy = { workspace = true }
 

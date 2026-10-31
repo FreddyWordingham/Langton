@@ -34,11 +34,14 @@ arc_feature = { version = "0.0.0", path = "crates/content/feature" }
 arc_item = { version = "0.0.0", path = "crates/content/item" }
 arc_terrain = { version = "0.0.0", path = "crates/content/terrain" }
 
+# Core
+arc_draw = { version = "0.0.0", path = "crates/core/draw" }
+arc_theme = { version = "0.0.0", path = "crates/core/theme" }
+
 # Dev
 arc_gizmo = { version = "0.0.0", path = "crates/dev/gizmo" }
 
 # Engine
-arc_draw = { version = "0.0.0", path = "crates/engine/draw" }
 arc_spatial = { version = "0.0.0", path = "crates/engine/spatial" }
 arc_tick = { version = "0.0.0", path = "crates/engine/tick" }
 

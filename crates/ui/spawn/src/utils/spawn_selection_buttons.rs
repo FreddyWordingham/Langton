@@ -3,6 +3,7 @@ use arc_draw::Draw;
 use arc_feature::Feature;
 use arc_item::Item;
 use arc_terrain::Terrain;
+use arc_theme::{DEFAULT_BUTTON_BORDER, DEFAULT_BUTTON_BORDER_COLOR, DEFAULT_BUTTON_BORDER_RADIUS, DEFAULT_BUTTON_PADDING};
 use bevy::{
     picking::hover::Hovered,
     prelude::*,
@@ -51,14 +52,14 @@ fn spawn_button<'a>(parent: &'a mut ChildSpawnerCommands<'_>, assets: &AssetServ
         Node {
             width: percent(100.0),
             height: auto(),
-            border: UiRect::all(px(2.0)),
-            border_radius: BorderRadius::all(px(4.0)),
-            padding: UiRect::horizontal(px(5.0)),
+            border: DEFAULT_BUTTON_BORDER,
+            border_radius: DEFAULT_BUTTON_BORDER_RADIUS,
+            padding: DEFAULT_BUTTON_PADDING,
             justify_content: JustifyContent::SpaceBetween,
             align_items: AlignItems::Center,
             ..default()
         },
-        BorderColor::from(Color::srgb(0.4, 0.4, 0.4)),
+        BorderColor::from(DEFAULT_BUTTON_BORDER_COLOR),
         children![
             Text::new(draw.name()),
             (

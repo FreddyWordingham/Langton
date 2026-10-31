@@ -12,7 +12,7 @@ pub(crate) fn spawn_ui(mut commands: Commands, assets: Res<AssetServer>, tick_ra
             TimeUi,
             Node {
                 position_type: PositionType::Absolute,
-                top: px(10.0),
+                top: px(5.0),
                 width: percent(100.0),
                 justify_content: JustifyContent::Center,
                 ..default()

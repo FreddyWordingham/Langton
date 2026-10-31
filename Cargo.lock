@@ -419,6 +419,7 @@ dependencies = [
  "arc_feature",
  "arc_item",
  "arc_terrain",
+ "arc_theme",
  "bevy",
 ]
 
@@ -427,6 +428,13 @@ name = "arc_terrain"
 version = "0.0.0"
 dependencies = [
  "arc_draw",
+ "bevy",
+]
+
+[[package]]
+name = "arc_theme"
+version = "0.0.0"
+dependencies = [
  "bevy",
 ]
 
@@ -442,6 +450,7 @@ name = "arc_time"
 version = "0.0.0"
 dependencies = [
  "arc_button",
+ "arc_theme",
  "arc_tick",
  "bevy",
 ]

@@ -2,7 +2,7 @@ use bevy::prelude::*;
 
 use crate::types::SpawnTab;
 
-#[derive(Resource)]
+#[derive(Resource, PartialEq, Eq)]
 pub struct ShowSpawnUi(pub(crate) SpawnTab);
 
 impl ShowSpawnUi {
