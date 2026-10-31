@@ -38,6 +38,7 @@ arc_terrain = { version = "0.0.0", path = "crates/content/terrain" }
 arc_gizmo = { version = "0.0.0", path = "crates/dev/gizmo" }
 
 # Engine
+arc_draw = { version = "0.0.0", path = "crates/engine/draw" }
 arc_spatial = { version = "0.0.0", path = "crates/engine/spatial" }
 arc_tick = { version = "0.0.0", path = "crates/engine/tick" }
 
@@ -50,6 +51,7 @@ arc_camera = { version = "0.0.0", path = "crates/presentation/camera" }
 
 # UI
 arc_button = { version = "0.0.0", path = "crates/ui/button" }
+arc_spawn = { version = "0.0.0", path = "crates/ui/spawn" }
 arc_time = { version = "0.0.0", path = "crates/ui/time" }
 
 
