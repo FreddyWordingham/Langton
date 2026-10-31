@@ -1,3 +1,4 @@
 mod defaults;
 
-pub(crate) use defaults::{DEFAULT_TPS, START_PAUSED};
+pub use defaults::BASE_TPS;
+pub(crate) use defaults::START_PAUSED;

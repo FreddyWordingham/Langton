@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 
-use crate::constants::{DEFAULT_TPS, START_PAUSED};
+use crate::constants::{BASE_TPS, START_PAUSED};
 
 #[derive(Resource)]
 pub struct TickRate {
@@ -13,7 +13,7 @@ impl Default for TickRate {
     fn default() -> Self {
         Self {
             is_paused: START_PAUSED,
-            tps: DEFAULT_TPS,
+            tps: BASE_TPS,
             pending_steps: 0,
         }
     }

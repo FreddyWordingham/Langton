@@ -13,8 +13,8 @@ pub(crate) fn swap_buttons(
         if time_menu.0 == tick_rate.is_paused() {
             continue;
         }
-
         time_menu.0 = tick_rate.is_paused();
+
         commands.entity(ent).despawn_children().with_children(|parent| {
             spawn_time_buttons(parent, &assets, tick_rate.is_paused());
         });

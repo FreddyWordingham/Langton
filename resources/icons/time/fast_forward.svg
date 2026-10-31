@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-    width="100" height="100"
-    viewBox="0 0 100 100">
-    <g transform="translate(0, 100) scale(1 -1)" fill="none" stroke="white" stroke-width="10"
-        stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="10,10 70,50 10,90" fill="white" />
-        <polygon points="30,10 90,50 30,90" fill="white" />
-    </g>
-</svg>

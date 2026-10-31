@@ -8,22 +8,24 @@ use bevy::{
 use crate::components::TimeButton;
 
 pub(crate) fn spawn_time_buttons(parent: &mut ChildSpawnerCommands<'_>, assets: &AssetServer, is_paused: bool) {
-    let mut spawn = |button, action: fn(&mut TickRate)| {
+    let mut spawn = |button| {
         parent
             .spawn(make_time_button(assets, button))
             .observe(move |_: On<Activate>, mut tick_rate: ResMut<TickRate>| {
-                action(&mut tick_rate);
+                button.action(&mut tick_rate);
             });
     };
 
     if is_paused {
-        spawn(TimeButton::Play, TickRate::unpause);
-        spawn(TimeButton::Step, TickRate::increment_pending);
+        spawn(TimeButton::Step);
     } else {
-        spawn(TimeButton::Pause, TickRate::pause);
-        spawn(TimeButton::Play, |rate| rate.set_tps(4.0));
-        spawn(TimeButton::FastForward, |rate| rate.set_tps(16.0));
+        spawn(TimeButton::Pause);
     }
+
+    spawn(TimeButton::Speed1);
+    spawn(TimeButton::Speed2);
+    spawn(TimeButton::Speed3);
+    spawn(TimeButton::Speed4);
 }
 
 fn make_time_button(assets: &AssetServer, time_button: TimeButton) -> impl Bundle {
@@ -33,8 +35,11 @@ fn make_time_button(assets: &AssetServer, time_button: TimeButton) -> impl Bundl
         Node {
             width: px(32.0),
             height: px(32.0),
+            border: UiRect::all(px(2.0)),
+            border_radius: BorderRadius::all(px(4.0)),
             ..default()
         },
+        BorderColor::from(Color::srgb(0.4, 0.4, 0.4)),
         ImageNode::new(assets.load(time_button.icon_path())),
     )
 }

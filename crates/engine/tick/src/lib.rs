@@ -7,6 +7,7 @@ mod sets;
 mod systems;
 
 pub use crate::{
+    constants::BASE_TPS,
     plugin::TickPlugin,
     resources::{Tick, TickRate},
     sets::{TickFirst, TickFixedUpdate, TickStartup},

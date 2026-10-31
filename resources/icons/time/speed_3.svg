@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+    <defs>
+        <polygon id="triangle" points="10,10 40,50 10,90" />
+    </defs>
+
+    <g transform="translate(0, 100) scale(1 -1)"
+        fill="white" stroke="white" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round">
+        <use href="#triangle" x="0" />
+        <use href="#triangle" x="25" />
+        <use href="#triangle" x="50" />
+    </g>
+</svg>

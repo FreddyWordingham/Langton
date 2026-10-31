@@ -1,9 +1,9 @@
 use bevy::prelude::*;
 
-use crate::constants::{DEFAULT_TPS, START_PAUSED};
+use crate::constants::{BASE_TPS, START_PAUSED};
 
 pub(crate) fn init_time(mut virtual_time: ResMut<Time<Virtual>>, mut fixed_time: ResMut<Time<Fixed>>) {
-    fixed_time.set_timestep_hz(DEFAULT_TPS);
+    fixed_time.set_timestep_hz(BASE_TPS);
 
     if START_PAUSED {
         virtual_time.pause();
