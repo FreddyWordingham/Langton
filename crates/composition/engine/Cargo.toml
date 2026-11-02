@@ -12,6 +12,7 @@ authors.workspace = true
 
 
 [dependencies]
+arc_map = { workspace = true }
 arc_spatial = { workspace = true }
 arc_tick = { workspace = true }
 

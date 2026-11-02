@@ -43,6 +43,7 @@ arc_theme = { version = "0.0.0", path = "crates/core/theme" }
 arc_gizmo = { version = "0.0.0", path = "crates/dev/gizmo" }
 
 # Engine
+arc_map = { version = "0.0.0", path = "crates/engine/map" }
 arc_spatial = { version = "0.0.0", path = "crates/engine/spatial" }
 arc_tick = { version = "0.0.0", path = "crates/engine/tick" }
 
