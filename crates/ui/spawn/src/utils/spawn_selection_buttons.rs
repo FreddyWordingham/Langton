@@ -1,14 +1,10 @@
+use arc_button::{button, button_node};
 use arc_construct::Construct;
 use arc_draw::Draw;
 use arc_feature::Feature;
 use arc_item::Item;
 use arc_terrain::Terrain;
-use arc_theme::{DEFAULT_BUTTON_BORDER, DEFAULT_BUTTON_BORDER_COLOR, DEFAULT_BUTTON_BORDER_RADIUS, DEFAULT_BUTTON_PADDING};
-use bevy::{
-    picking::hover::Hovered,
-    prelude::*,
-    ui_widgets::{Activate, Button},
-};
+use bevy::{prelude::*, ui_widgets::Activate};
 
 use crate::{resources::ActiveSpawnSelection, types::SpawnTab};
 
@@ -47,19 +43,13 @@ pub(crate) fn spawn_selection_buttons(parent: &mut ChildSpawnerCommands<'_>, ass
 
 fn spawn_button<'a>(parent: &'a mut ChildSpawnerCommands<'_>, assets: &AssetServer, draw: &impl Draw) -> EntityCommands<'a> {
     parent.spawn((
-        Button,
-        Hovered::default(),
-        Node {
+        button(Node {
             width: percent(100.0),
             height: auto(),
-            border: DEFAULT_BUTTON_BORDER,
-            border_radius: DEFAULT_BUTTON_BORDER_RADIUS,
-            padding: DEFAULT_BUTTON_PADDING,
             justify_content: JustifyContent::SpaceBetween,
             align_items: AlignItems::Center,
-            ..default()
-        },
-        BorderColor::from(DEFAULT_BUTTON_BORDER_COLOR),
+            ..button_node()
+        }),
         children![
             Text::new(draw.name()),
             (
