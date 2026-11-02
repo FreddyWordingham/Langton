@@ -375,6 +375,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_grid"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_input"
 version = "0.0.0"
 dependencies = [
@@ -386,6 +393,13 @@ name = "arc_item"
 version = "0.0.0"
 dependencies = [
  "arc_draw",
+ "bevy",
+]
+
+[[package]]
+name = "arc_map"
+version = "0.0.0"
+dependencies = [
  "bevy",
 ]
 
