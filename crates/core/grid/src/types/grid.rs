@@ -2,9 +2,9 @@ use std::ops::{Index, IndexMut};
 
 use bevy::prelude::*;
 
-use crate::utils::*;
+use crate::utils::{coord_to_index, index_to_coord, iter_coords};
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Grid<T> {
     size: UVec2,
     data: Vec<T>,

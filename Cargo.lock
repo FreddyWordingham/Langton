@@ -465,6 +465,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "arc_tilemap"
+version = "0.0.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "arc_time"
 version = "0.0.0"
 dependencies = [
