@@ -44,6 +44,7 @@ arc_gizmo = { version = "0.0.0", path = "crates/dev/gizmo" }
 
 # Engine
 arc_map = { version = "0.0.0", path = "crates/engine/map" }
+arc_random = { version = "0.0.0", path = "crates/engine/random" }
 arc_spatial = { version = "0.0.0", path = "crates/engine/spatial" }
 arc_tick = { version = "0.0.0", path = "crates/engine/tick" }
 
@@ -68,6 +69,7 @@ bevy = { version = "0.20", default-features = false, features = [
     "dynamic_linking",
     "ui",
 ] }
+rand = "0.10.3"
 
 
 [workspace.lints.rust]
